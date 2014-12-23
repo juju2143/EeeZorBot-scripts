@@ -16,7 +16,7 @@ isup.js
 .isup <url>
 ```
 
-Gets the error code of a URL.
+Gets the HTTP error code of a URL.
 
 search.js
 ---------
@@ -24,7 +24,7 @@ search.js
 .cw <query>
 ```
 
-Searches a MySQL database for <query>.
+Searches a MySQL database for *query*.
 
 google.js
 ---------
@@ -32,7 +32,7 @@ google.js
 .google <query>
 ```
 
-Searches Google for <query>.
+Searches Google for *query*.
 
 wolfram.js
 ----------
@@ -40,4 +40,4 @@ wolfram.js
 .calc <query>
 ```
 
-Asks Wolfram Alpha about <query>. Needs an appID from the Wolfram Alpha website in the config.json.
+Asks Wolfram Alpha about *query*. Needs an appID from the Wolfram Alpha website in the config.json.
