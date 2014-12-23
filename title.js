@@ -14,17 +14,22 @@ function getTitle(theurl, callback)
   else
     var http = require("http");
   http.get(opts, function(res) {
-    datas = "";
-    res.on('data', function (chunk) {
-      datas += chunk;
-    });
-    res.on('error', function (e) {
-      console.log("stuff happened "+util.inspect(e))
-    });
-    res.on('end', function () {
-      var $ = cheerio.load(datas);
-      callback($('title').text());
-    });
+    if(res.statusCode == 301 || res.statusCode == 302 || res.statusCode == 303 || res.statusCode == 307 || res.statusCode == 308)
+      getTitle(res.headers.location, callback);
+    else
+    {
+      datas = "";
+      res.on('data', function (chunk) {
+        datas += chunk;
+      });
+      res.on('error', function (e) {
+        console.log("stuff happened "+util.inspect(e))
+      });
+      res.on('end', function () {
+        var $ = cheerio.load(datas);
+        callback($('title').text());
+      });
+    }
   });
 }
 
