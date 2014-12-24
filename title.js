@@ -40,7 +40,7 @@ function titleCallback(text){
     chan = this.channel.name;
     for(i=0; i<res.length; i++)
     {
-      getTitle(res[0], function(title){
+      getTitle(res[i], function(title){
         if(title != "")
           server.send("PRIVMSG "+chan+" :[\x0310title\x0F] "+title);
       });
